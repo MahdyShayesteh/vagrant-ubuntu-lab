@@ -5,9 +5,8 @@ ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 Vagrant.configure(2) do |config|
   
   machines={
-    "App" => {:hostname => "app", :box => IMAGE_ubuntu2204, :memory => 1024, :cpus => 1},
-    "DB"  => {:hostname => "db",  :box => IMAGE_ubuntu2204, :memory => 2048, :cpus => 2},
-    "Storage"  => {:hostname => "storage",  :box => IMAGE_ubuntu2204, :memory => 1024, :cpus => 1}  
+    "ControllerNode" => {:hostname => "Controller", :box => IMAGE_ubuntu2204, :memory => 1024, :cpus => 1},
+    "ManagedNode"  => {:hostname => "Managed",  :box => IMAGE_ubuntu2204, :memory => 1024, :cpus => 1}
   }
 
   #NodeType1 = 3

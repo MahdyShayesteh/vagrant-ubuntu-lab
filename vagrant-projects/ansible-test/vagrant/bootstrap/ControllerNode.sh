@@ -1,30 +1,20 @@
 #! /bin/bash
 
 # update and upgrade
-apt get-update
-# apt get-upgrade
+sudo apt update -y
 
-# install vim
-sudo apt install -y vim 
+echo "===== Installing base packages ====="
+sudo apt install -y \
+  python3 \
+  python3-pip \
+  software-properties-common \
+  curl \
+  git \
+  openssh-client
 
-# install nginx
-sudo apt install -y nginx
+echo "===== Installing Ansible via pip ====="
+sudo pip3 install --upgrade pip
+sudo pip3 install ansible
 
-# start and enable nginx
-systemctl start nginx
-systemctl enable nginx
-
-# Create a simple test page (optional)
-echo "<html><body><h1>Vagrant Nginx Test</h1><p>Nginx is running!</p></body></html>" > /var/www/html/index.html
-
-# Set proper permissions
-chown -R www-data:www-data /var/www/html
-chmod -R 755 /var/www/html
-
-# Test Nginx configuration
-nginx -t
-
-# Restart Nginx to apply changes
-systemctl restart nginx
-
-echo "Nginx installation completed!"
+echo "===== Verifying ====="
+ansible --version

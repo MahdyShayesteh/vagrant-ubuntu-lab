@@ -10,3 +10,7 @@ This project is a small learning lab created with Vagrant and ansible
 - VirtualBox
 - Git
 
+
+first prepare three vagrant machin
+    controller Node
+    two managed Node
